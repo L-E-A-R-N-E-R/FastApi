@@ -17,6 +17,12 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag myimage:$(date +%s)
 
+    - name: Login to the dockerhub
+      run: docker login -u porwalmohit1999 -p Mohit@202
+
+    - name: Push to image to the registry
+      run: docker push myimage
+      
     - name: Run the Docker container
-      run: docker run -d -p 8080:80 myimage:$(date +%s)
+      run: docker run -d -p 8080:80 docker.io/porwalmohit1999/myimage:$(date +%s)
 
