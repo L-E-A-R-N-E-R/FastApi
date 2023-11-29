@@ -21,7 +21,7 @@ jobs:
       run: docker login -u porwalmohit1999 -p Mohit@202
 
     - name: Push to image to the registry
-      run: docker push myimage
+      run: docker push myimage:$(date +%s)
       
     - name: Run the Docker container
       run: docker run -d -p 8080:80 docker.io/porwalmohit1999/myimage:$(date +%s)
